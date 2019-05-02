@@ -11,21 +11,9 @@ APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(APP, db)
 db.init_app(APP)
 
-def checkRelationship(entity, table, attribute):
-    info = request.get_json() or {}
-    if info[attribute] is not None:
-        for e in info[attribute]:
-            thing = table.query.get(e)
-            att = r"attribute"
-            if thing is not None:
-                entity.att.append(thing)
-            else:
-                return jsonify("error")
-
 @APP.route('/')
 def hello_world():
     return "lo"
-
 
 @APP.route('/persons', methods=['GET'])
 def allPersons():
