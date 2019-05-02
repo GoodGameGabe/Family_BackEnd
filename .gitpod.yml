@@ -1,0 +1,13 @@
+image:
+    file: .gitpod.dockerfile
+ports:
+    - port: 8080
+tasks:
+    - init: >
+        cp .env.example .env;
+        pipenv run init;
+
+    - command: >
+        pipenv run start;
+        python3 welcome.py;
+
