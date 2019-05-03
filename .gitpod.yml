@@ -9,9 +9,8 @@ tasks:
         pipenv run init;
         pipenv run migrate;
 
-
     - command: >
-        pipenv run start;
+        pipenv shell;
 
 
 
